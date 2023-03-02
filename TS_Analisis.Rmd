@@ -54,6 +54,7 @@ library(tsibble)
 library(zoo)
 library(feasts)
 library(kableExtra)
+library(CCAMLRGIS)
 ```
 
 Read data. This data is from another  analysis with raster layer from satellite sources.
