@@ -279,6 +279,24 @@ components(dcmptsm) |>
 
 ```
 
+```{r}
+descom <- decompose(ts_tsm)
+autoplot(descom)
+acf(ts_tsm)
+pacf(ts_tsm)
+dy <-diff(ts_tsm)
+print(modeloar <- forecast::auto.arima(ts_tsm,
+                                       d=1,
+                                       D=1,
+                                       stepwise = F,
+                                       approximation = F,
+                                       trace=F))
+forecast::checkresiduals(modeloar)
+
+fct <- forecast::forecast(modeloar, h=10, level=95)
+autoplot(fct)+
+  theme_bw()
+```
 
 ### Model ARIMA
 
