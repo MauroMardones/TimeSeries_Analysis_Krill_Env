@@ -134,9 +134,30 @@ When decomposing a time series, it is sometimes helpful to first transform or ad
 ```{r}
 dcmp <- ts_tbobj|>
   model(stl = STL(value))
-kableExtra::kable(components(dcmp))
+
 ```
 
+
+
+otra manera de edescomponer y forecast 
+```{r}
+descomsic <- decompose(ts_obj)
+#autoplot(descomsic)
+acf(ts_obj)
+pacf(ts_obj)
+dy <-diff(ts_obj)
+print(modeloarsic <- forecast::auto.arima(ts_obj,
+                                       d=1,
+                                       D=1,
+                                       stepwise = F,
+                                       approximation = F,
+                                       trace=F))
+forecast::checkresiduals(modeloarsic)
+
+fctsic <- forecast::forecast(modeloarsic, h=10, level=95)
+autoplot(fctsic)+
+  theme_bw()
+```
 
 ```{r}
 components(dcmp) |>
@@ -254,7 +275,7 @@ When decomposing a time series, it is sometimes helpful to first transform or ad
 ```{r}
 dcmptsm <- ts_tsm2|>
   model(stl = STL(value))
-kableExtra::kable(components(dcmptsm))
+
 ```
 
 
@@ -279,6 +300,8 @@ components(dcmptsm) |>
 
 ```
 
+
+otra manera de descomponer y forecast 
 ```{r}
 descom <- decompose(ts_tsm)
 autoplot(descom)
