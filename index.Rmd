@@ -248,6 +248,7 @@ ts_tsm2 |>
 ```
 ### Autocorrelacion
 
+
 An `scaterplot` of correlation simple bettwen lags. We select 60 lags, to get entire series of SIC.
 
 ```{r}
