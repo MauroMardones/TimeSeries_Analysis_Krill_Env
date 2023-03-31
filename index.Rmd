@@ -252,6 +252,7 @@ ts_tsm2 |>
 An `scaterplot` of correlation simple bettwen lags. We select 60 lags, to get entire series of SIC.
 
 
+
 ```{r}
 ts_tsm2 %>% 
   gg_lag(value, 
